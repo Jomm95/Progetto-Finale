@@ -11,8 +11,8 @@ class UserController extends Controller
 {
     public function index() {
 
-        $users = User::all();
-        $types = Type::all();
+        $users = User::with(['types']);
+        // $types = Type::all();
 
         return response()->json(
             [
@@ -29,30 +29,48 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function filter($element) {
+    // public function getClientesPorRuta(Request $request) {
+    //     $rutas = $request->input('rutas');
+    //     $tipos = $request->input('tipos');
 
-        $users = User::all();
+    //     // Code like this doesn't work
+    //     $index = 0;
+    //     $register = Ruta::where('CODIRUTA','=',$rutas[$index])->first();
+    //   }
 
-        $element = explode(",", $element);
+    public function filter($filter) {
 
+        // $users = User::with(['types']);
+
+        $filter = explode(",", $filter);
         $usersArray = [];
 
-        for($i=0; $i<count($element); $i++){
+        foreach($filter as $test) {
 
-            foreach($users as $test){
-
-                for($n=0; $n<count($test->types); $n++){
-
-                    if($test->types[$n]->id == $element[$i]){
-
-                        if(!in_array($test, $usersArray)){
-                            $usersArray[] = $test;
-                        }
-
-                    }
-                }
-            }
+            $users = User::with(['types'])->where('types', $test)->first();
+            $usersArray[] = $users;
         }
+
+
+        // $tester = $request;
+
+
+
+        // for($i=0; $i<count($filter); $i++){
+
+        //     foreach($users as $user){
+
+        //         for($n=0; $n<count($user->types); $n++){
+
+        //             if($user->types[$n]->id == $filter[$i]){
+
+        //                 if(!in_array($user, $usersArray)){
+        //                     $usersArray[] = $user;
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
 
         return response()->json(
             [
@@ -67,18 +85,11 @@ class UserController extends Controller
     {
 
         $users = User::where('slug', $slug)->first();
-        $types = [];
-
-        foreach($users->$types as $element) {
-            $types[] = $element->name;
-        }
-
 
         if($users) {
             return response()->json(
                 [
-                    'allUsers' => $users,
-                    'allTypes' => $types,
+                    'results' => $users,
                     'success' => true,
                 ]
             );

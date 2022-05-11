@@ -7,10 +7,6 @@ import App from './views/App';
 
 import router from './router';
 
-//import per usare vue-router
-
-//import router from './router';
-
 const app = new Vue({
 
     el:'#root',

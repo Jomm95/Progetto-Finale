@@ -5164,13 +5164,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Main',
+  name: "Main",
   data: function data() {
     return {
-      selection: [],
-      types: [],
+      types: null,
+      selected: [],
       users: []
     };
   },
@@ -5178,24 +5177,28 @@ __webpack_require__.r(__webpack_exports__);
     getTypes: function getTypes() {
       var _this = this;
 
-      axios.get('http://127.0.0.1:8000/api/types/').then(function (response) {
+      // prelevo tutte le tipologie
+      axios.get('api/types').then(function (response) {
         _this.types = response.data.results;
       });
     },
     getUsers: function getUsers() {
       var _this2 = this;
 
-      axios.get('http://127.0.0.1:8000/api/users/').then(function (response) {
+      axios.get('/api/users').then(function (response) {
         _this2.users = response.data.results;
+      })["catch"](function (error) {
+        console.log(error);
       });
     },
     filteredType: function filteredType() {
       var _this3 = this;
 
       this.users = [];
+      console.log('api/users/' + this.selected);
 
-      if (this.selection.length > 0) {
-        axios.get('/api/users/' + this.selection).then(function (response) {
+      if (this.selected.length > 0) {
+        axios.get('api/users/' + this.selected).then(function (response) {
           _this3.users = response.data.results;
         });
       } else {
@@ -41473,70 +41476,64 @@ var render = function () {
             },
           },
           [
-            _c(
-              "div",
-              { staticClass: "col" },
-              [
-                _vm._l(_vm.types, function (type) {
-                  return _c("div", { key: type.id }, [
-                    _c("div", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.selection,
-                            expression: "selection",
-                          },
-                        ],
-                        staticClass: "form-check-input",
-                        attrs: { type: "checkbox", id: "type_" + type.id },
-                        domProps: {
-                          value: type.id,
-                          checked: Array.isArray(_vm.selection)
-                            ? _vm._i(_vm.selection, type.id) > -1
-                            : _vm.selection,
-                        },
-                        on: {
-                          change: function ($event) {
-                            var $$a = _vm.selection,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = type.id,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 && (_vm.selection = $$a.concat([$$v]))
-                              } else {
-                                $$i > -1 &&
-                                  (_vm.selection = $$a
-                                    .slice(0, $$i)
-                                    .concat($$a.slice($$i + 1)))
-                              }
-                            } else {
-                              _vm.selection = $$c
-                            }
-                          },
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "label",
-                        {
-                          staticClass: "form-check-label",
-                          attrs: { for: "type_" + type.id },
-                        },
-                        [_vm._v(_vm._s(type.name))]
-                      ),
-                    ]),
-                  ])
-                }),
-                _vm._v(" "),
-                _vm._m(0),
-              ],
-              2
-            ),
-          ]
+            _vm._l(_vm.types, function (typex) {
+              return _c("div", { key: typex.id }, [
+                _c("div", [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.selected,
+                        expression: "selected",
+                      },
+                    ],
+                    staticClass: "form-check-input",
+                    attrs: { type: "checkbox", id: "typex_" + typex.id },
+                    domProps: {
+                      value: typex.id,
+                      checked: Array.isArray(_vm.selected)
+                        ? _vm._i(_vm.selected, typex.id) > -1
+                        : _vm.selected,
+                    },
+                    on: {
+                      change: function ($event) {
+                        var $$a = _vm.selected,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = typex.id,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 && (_vm.selected = $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.selected = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
+                        } else {
+                          _vm.selected = $$c
+                        }
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-check-label",
+                      attrs: { for: "typex_" + typex.id },
+                    },
+                    [_vm._v(_vm._s(typex.name))]
+                  ),
+                ]),
+              ])
+            }),
+            _vm._v(" "),
+            _vm._m(0),
+          ],
+          2
         ),
       ]),
       _vm._v(" "),
@@ -41544,11 +41541,15 @@ var render = function () {
         "div",
         { staticClass: "row m-5" },
         _vm._l(_vm.users, function (user) {
-          return _c("div", { key: "user" + user.id, staticClass: "col-4 " }, [
+          return _c("div", { key: "user_" + user.id, staticClass: "col-4 " }, [
             _c("div", { staticClass: "card" }, [
               _c("div", { staticClass: "card-body" }, [
                 _c("h5", { staticClass: "card-title" }, [
                   _vm._v(_vm._s(user.restaurant_name)),
+                ]),
+                _vm._v(" "),
+                _c("h5", { staticClass: "card-title" }, [
+                  _vm._v(_vm._s(user.typee)),
                 ]),
                 _vm._v(" "),
                 _c("ul"),
@@ -53962,8 +53963,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\progLaravel\Progetto-Finale\Deliveroo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\progLaravel\Progetto-Finale\Deliveroo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\pizze\Desktop\BOOLEAN\PROGETTO_FINALE\Progetto-Finale\Deliveroo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\pizze\Desktop\BOOLEAN\PROGETTO_FINALE\Progetto-Finale\Deliveroo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
