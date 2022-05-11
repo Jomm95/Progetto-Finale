@@ -30,13 +30,10 @@
             </div> -->
 
             <div class="row m-5">
-               <div class="col-4 " v-for="user in users" :key="'user' + user.id">
+               <div class="col-4" v-for="user in users" :key="'user' + user.id">
                    <div class="card">
-                       <div class="card-body">
-                           <h5 class="card-title">{{user.restaurant_name}}</h5>
-                           <ul>
-
-                           </ul>
+                       <div v-for="(link, index) in navLinks" :key="index" class="card-body">
+                           <router-link :to="{name: link.to}" class="card-title">{{user.restaurant_name}}</router-link>
                        </div>
                    </div>
                 </div>
@@ -69,6 +66,13 @@ export default {
             selection:[],
             types:[],
             users:[],
+
+            navLinks: [
+                {
+                    to : 'restaurant-menu',
+                    name : 'Menu',
+                },
+            ]
         }
     },
 
@@ -92,17 +96,15 @@ export default {
 
         filteredType() {
             this.users = [];
+                console.log('api/users/'+ this.selection)
 
-            if (this.selection.length > 0) {
-                axios.get('/api/users/' + this.selection).then((response) => {
-
-                    this.users = response.data.results;
-
-                });
-
-            } else {
-                this.getUsers();
-            }
+                if(this.selection.length > 0){
+                    axios.get('api/users/'+ this.selection) .then(response =>{
+                        this.users = response.data.results;
+                    })
+                }else{
+                    this.getUsers();
+                }
         }
 
     },

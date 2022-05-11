@@ -29,22 +29,25 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function filter($element) {
+    public function filter($filter) {
 
-        $users = User::all();
+        $users = User::with(['types']);
+        //TODO filtro dati lato server (eloquent)
 
-        $element = explode(',', $element);
+        $filter = explode(",", $filter);
+        // $tester = $request;
 
-        $usersArray = [];
+        $usersArray = [$filter];
 
-        for($i = 0; $i < count($element); $i++) {
-            foreach($users as $user) {
+        for($i=0; $i<count($filter); $i++){
 
-                for($n = 0; $n < count($user->types); $n++) {
+            foreach($users as $user){
 
-                    if($user->types[$n]->id == $element[$i]) {
+                for($n=0; $n<count($user->types); $n++){
 
-                        if(!in_array($user, $usersArray)) {
+                    if($user->types[$n]->id == $filter[$i]){
+
+                        if(!in_array($user, $usersArray)){
                             $usersArray[] = $user;
                         }
                     }
@@ -55,7 +58,7 @@ class UserController extends Controller
         return response()->json(
             [
                 'results' => $usersArray,
-                'success' => true
+                'success'=> true,
             ]
         );
 

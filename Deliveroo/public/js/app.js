@@ -5162,16 +5162,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Main',
   data: function data() {
     return {
       selection: [],
       types: [],
-      users: []
+      users: [],
+      navLinks: [{
+        to: 'restaurant-menu',
+        name: 'Menu'
+      }]
     };
   },
   methods: {
@@ -5193,9 +5194,10 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       this.users = [];
+      console.log('api/users/' + this.selection);
 
       if (this.selection.length > 0) {
-        axios.get('/api/users/' + this.selection).then(function (response) {
+        axios.get('api/users/' + this.selection).then(function (response) {
           _this3.users = response.data.results;
         });
       } else {
@@ -41544,16 +41546,29 @@ var render = function () {
         "div",
         { staticClass: "row m-5" },
         _vm._l(_vm.users, function (user) {
-          return _c("div", { key: "user" + user.id, staticClass: "col-4 " }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title" }, [
-                  _vm._v(_vm._s(user.restaurant_name)),
-                ]),
-                _vm._v(" "),
-                _c("ul"),
-              ]),
-            ]),
+          return _c("div", { key: "user" + user.id, staticClass: "col-4" }, [
+            _c(
+              "div",
+              { staticClass: "card" },
+              _vm._l(_vm.navLinks, function (link, index) {
+                return _c(
+                  "div",
+                  { key: index, staticClass: "card-body" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "card-title",
+                        attrs: { to: { name: link.to } },
+                      },
+                      [_vm._v(_vm._s(user.restaurant_name))]
+                    ),
+                  ],
+                  1
+                )
+              }),
+              0
+            ),
           ])
         }),
         0

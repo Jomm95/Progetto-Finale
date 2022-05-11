@@ -4,24 +4,13 @@
             <div class="col-10 offset-1">
                 <nav class="py-2">
                     <ul class="nav justify-content-center">
-                        <li>
-                            <a class="nav-link" href="/admin">Admin Access</a>
-                        </li>
-                        <!-- <li v-for="(link, index) in navLinks" :key="index" class="nav-item">
+                        <li v-for="(link, index) in navLinks" :key="index" class="nav-item">
                             <router-link class="  text-white nav-link" aria-current="page" :to="{name: link.to}">{{ link.name }}</router-link>
                         </li>
-                        <li class="nav-item">
-                            <router-link class="nav-link" :to="{name: 'menu'}">Menu</router-link>
+                        <li>
+                            <a class="nav-link" href="/admin">Accedi o Registrati</a>
                         </li>
-                        <li class="nav-item">
-                            <router-link class="nav-link" :to="{name: 'order'}">Ordina la tua pizza!</router-link>
-                        </li> -->
                     </ul>
-                    <!-- <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
-                            <a class="nav-link" href="/admin">Admin Access</a>
-                            </li>
-                    </ul> -->
                 </nav>
             </div>
         </div>
@@ -39,17 +28,13 @@ export default {
                     name : 'Home',
                 },
                 {
-                    to : 'menu',
-                    name : 'Menu',
-                },
-                {
-                    to : 'order',
-                    name : 'Ordina subito!',
+                    to : 'checkout',
+                    name : 'Carrello',
                 },
                 {
                     to : 'contacts',
                     name : 'Contattaci',
-                }
+                },
             ]
         }
     },

@@ -3,7 +3,10 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-import App from './views/App';
+import Home from './pages/Home';
+import Item from './pages/Item';
+import CheckOut from './pages/CheckOut';
+import RestaurantMenu from './pages/RestaurantMenu';
 
 const router = new VueRouter({
     mode: "history",
@@ -12,8 +15,25 @@ const router = new VueRouter({
         {
             path: '/',
             name: 'home',
-            component: App
+            component: Home
         },
+        {
+            path: '/',
+            name: 'item',
+            component: Item
+        },
+        {
+            path: '/',
+            name: 'checkout',
+            component: CheckOut
+        },
+        {
+            path: '/',
+            name: 'restaurant-menu',
+            component: RestaurantMenu
+        },
+        
+    
     ]
 });
 
