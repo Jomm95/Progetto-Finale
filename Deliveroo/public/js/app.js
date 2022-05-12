@@ -53745,6 +53745,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/admin.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/admin.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -53756,27 +53767,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/login.scss":
-/*!***********************************!*\
-  !*** ./resources/sass/login.scss ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nError: ENOENT: no such file or directory, open 'C:\\progLaravel\\Progetto-Finale\\Deliveroo\\resources\\sass\\login.scss'\n    at C:\\progLaravel\\Progetto-Finale\\Deliveroo\\node_modules\\webpack\\lib\\NormalModule.js:316:20\n    at C:\\progLaravel\\Progetto-Finale\\Deliveroo\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at C:\\progLaravel\\Progetto-Finale\\Deliveroo\\node_modules\\loader-runner\\lib\\LoaderRunner.js:203:19\n    at C:\\progLaravel\\Progetto-Finale\\Deliveroo\\node_modules\\enhanced-resolve\\lib\\CachedInputFileSystem.js:85:15\n    at processTicksAndRejections (node:internal/process/task_queues:78:11)");
-
-/***/ }),
-
 /***/ 0:
 /*!*****************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/login.scss ***!
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/admin.scss ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\progLaravel\Progetto-Finale\Deliveroo\resources\js\app.js */"./resources/js/app.js");
 __webpack_require__(/*! C:\progLaravel\Progetto-Finale\Deliveroo\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\progLaravel\Progetto-Finale\Deliveroo\resources\sass\login.scss */"./resources/sass/login.scss");
+module.exports = __webpack_require__(/*! C:\progLaravel\Progetto-Finale\Deliveroo\resources\sass\admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })

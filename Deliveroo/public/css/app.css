@@ -13,7 +13,7 @@
   --bs-purple: #9561e2;
   --bs-pink: #f66d9b;
   --bs-red: #e3342f;
-  --bs-orange: #f6993f;
+  --bs-orange: #FE4818;
   --bs-yellow: #ffed4a;
   --bs-green: #38c172;
   --bs-teal: #4dc0b5;
@@ -12184,7 +12184,7 @@ fieldset:disabled .btn {
 
 .adminBody {
   height: 100vh;
-  background-color: #EAF0F2;
+  background-color: #fff;
   background-position: center;
   background-repeat: repeat;
   background-size: contain;

@@ -22,22 +22,18 @@
 </head>
 <body>
     <div id="app" class="adminBody">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm adminNavbar">
+        {{-- <nav class="navbar navbar-expand-md navbar-light shadow-sm adminNavbar">
             <div class="container">
                 <a class="navbar-brand text-white" href="{{ url('/') }}">
-                    {{-- {{ config('app.name', 'Laravel') }} --}}
                     DELIVEBOO
                 </a>
 
                 <div class="collapse navbar-collapse adminNavRight" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
@@ -66,9 +62,9 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> --}}
 
-        <main class="py-4">
+        <main>
 
             @yield('content')
 
