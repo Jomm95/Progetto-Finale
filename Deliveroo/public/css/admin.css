@@ -12204,6 +12204,10 @@ fieldset:disabled .btn {
   display: flex;
 }
 
+.container-register {
+  background-image: url("/Deliveroo/public/storage/background/Back-register.jpg");
+}
+
 .box-form {
   display: flex;
   flex-direction: column;
@@ -12227,7 +12231,7 @@ fieldset:disabled .btn {
 .box-form .card-register .star {
   align-self: center;
   font-size: 18px;
-  color: darkgrey;
+  color: #fff;
 }
 
 .box-form .card-register .form-body {
@@ -12412,4 +12416,18 @@ fieldset:disabled .btn {
   width: calc(100% + 16px);
   height: calc(100% + 16px);
 }
+
+/* Rimozione spinner da input-number */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Rimozione spinner da input-number */
 
