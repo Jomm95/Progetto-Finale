@@ -1,47 +1,15 @@
 <template>
-    <div>
-        <div class="row m-5">
-            <h2>Nome ristorante</h2>
-            <div class="card col-12">
-                <div class="card-body" v-if="users != null">
-                    <h5 class="card-title">{{users.restaurant_name}}</h5>
-                </div>
-            </div>
-
-            <h2 class="mt-4">Menù</h2>
-            <h4>seleziona i piatti che desideri</h4>
-            <!-- <div class="card col-12">
-                <div v-for="item in items" :key='item.id'>
-                    <h5 class="card-title">{{item.item_name}}</h5>
-                </div>
-            </div> -->
-
-            <form action="" class="row" @submit.prevent="addToCart()">
-                    <div class="p-2 col-3" v-for="item in items" :key="item.id">
-                        <div class="card p-4">
-                            <h1>{{item.item_name}}</h1>
-                            <span class="py-2">{{item.description}}</span>
-                            <h4 class="py-2">{{item.price}}</h4>
-                            <span>AGGIUNGI PIATTO</span>
-                            <input class="form-check-input box" type="checkbox" v-model="cart" :value="item.id" :id="'item_' + item.id">
-                        </div>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-warning mt-4">AGGIUNGI PIATTI AL CARRELLO</button>
-                    </div>
-            </form>
-
-            <div class="carrello">
-                <h1>carrello</h1>
-                <div class="card"  v-for="dato in dati" :key="dato.name">
-                    <div v-if="dato.visible = 1">
-                        <h3>{{dato.item_name}}</h3>
-                        <h5>{{dato.price}}</h5>
-                    </div>
+  <div>
+      <div class="row m-5">
+        <div v-for="item in users" :key="item.id">
+            <div class="card col-4" v-if="item.slug == test">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.name}}</h5>
                 </div>
             </div>
         </div>
-    </div>
+      </div>
+  </div>
 </template>
 
 <script>
@@ -49,27 +17,35 @@ export default {
     name: 'RestaurantMenu',
     data: function(){
         return {
+            element: null,
             users: [],
-            items: [],
-            dati: [],
             test: this.$route.params.slug,
-            cart:[],
-            aaa: []
         }
     },
 
     methods: {
-        getSlug(){
-            const slug = this.$route.params.slug;
-            // console.log(slug)
-            // console.log('/api/users/' + slug)
+        // getSlug(){
+        //     const slug = this.$route.params.slug;
+        //     // console.log(slug)
+        //     // console.log('/api/users/' + slug)
 
-            axios.get('/api/user/' + slug).then(response => {
-                this.users = response.data.users;
-                this.items = response.data.items;
-                // console.log(response.data.users);
-                console.log(response.data.items);
-                // console.log('ddddddd');
+        //     axios.get('/api/users/' + slug).then(response => {
+        //         this.element = response.data;
+        //         console.log(response.data)
+        //         console.log('ddddddd')
+        //     })
+
+        //     .catch(error => {
+        //         console.log(error);
+        //     })
+
+        // },
+
+        getUsers(){
+            axios.get('/api/users').then(response => {
+                this.users = response.data.results;
+                console.log(response.data.results)
+                console.log('aaaaaaaaaaaaa')
             })
 
             .catch(error => {
@@ -78,55 +54,15 @@ export default {
 
         },
 
-        addToCart(){
-            this.itemsCart = []
-            const slug = this.$route.params.slug;
-            console.log('/api/user/' + slug + '/' + this.cart)
-
-            if(this.cart.length > 0){
-                axios.get('/api/user/' + slug + '/' + this.cart) .then(response =>{
-                    this.dati = response.data.results;
-                    console.log(response.data.price);
-
-                    const array1 = [1, 2, 3, 4];
-
-                    const initialValue = 0;
-                    const sumWithInitial = array1.reduce(
-                    (previousValue, currentValue) => previousValue + currentValue,
-                        initialValue
-                    );
-
-                    console.log(sumWithInitial);
-
-                })
-            }else{
-                this.items;
-            }
-
-        }
     },
 
-    created() {
-        this.getSlug();
+    mounted() {
+        // this.getSlug();
+        this.getUsers();
     }
 }
 </script>
 
-<style lang="scss" scoped>
+<style>
 
-.carrello{
-    width: 600px;
-    height: 300px;
-    position: absolute;
-    bottom: 0;
-    right: 100px;
-    background-color: aqua;
-    overflow-y: auto;
-}
-
-.box{
-    width: 100%;
-    height: 30px;
-    text-align: center;
-}
 </style>
