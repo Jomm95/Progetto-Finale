@@ -5107,11 +5107,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Main"
 });
@@ -41362,20 +41357,9 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("main")
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("main", [
-      _c("div", { staticClass: "container" }, [
-        _c("h1", [_vm._v("Benvenuti in Deliveboo!!")]),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -53774,9 +53758,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\pizze\Desktop\BOOLEAN\PROGETTO_FINALE\Progetto-Finale\Deliveroo\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Users\pizze\Desktop\BOOLEAN\PROGETTO_FINALE\Progetto-Finale\Deliveroo\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\Users\pizze\Desktop\BOOLEAN\PROGETTO_FINALE\Progetto-Finale\Deliveroo\resources\sass\admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! C:\progLaravel\Progetto-Finale\Deliveroo\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\progLaravel\Progetto-Finale\Deliveroo\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\progLaravel\Progetto-Finale\Deliveroo\resources\sass\admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })

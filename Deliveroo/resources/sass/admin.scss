@@ -12,4 +12,17 @@
 @import 'partials-adm/register';
 @import 'partials-adm/edit';
 @import 'partials-adm/show';
-@import 'partials-adm/adm-section';
+@import 'partials-adm/items-list';
+
+
+/* Rimozione spinner da input-number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+/* Rimozione spinner da input-number */

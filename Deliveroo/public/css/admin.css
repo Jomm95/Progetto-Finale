@@ -12200,3 +12200,238 @@ fieldset:disabled .btn {
   background-color: #85ADBE !important;
 }
 
+.contanier-form {
+  display: flex;
+}
+
+.container-register {
+  background-image: url("/Deliveroo/public/storage/background/Back-register.jpg");
+}
+
+.box-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.box-form h2,
+.box-form .h2 {
+  align-self: center;
+  font-weight: 600;
+  margin-top: 20px;
+  color: #7E01FF;
+}
+
+.box-form .card-register {
+  margin-top: 30px;
+  display: flex;
+  background-color: #f6993f;
+  border-radius: 20px;
+}
+
+.box-form .card-register .star {
+  align-self: center;
+  font-size: 18px;
+  color: #fff;
+}
+
+.box-form .card-register .form-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box-form .card-register .form-body form {
+  width: 70%;
+}
+
+.box-form .card-register .form-body form .row-register {
+  width: 100%;
+}
+
+.box-form .card-register .form-body form .row-register .label-register {
+  font-size: 20px;
+  color: #fff;
+  margin-left: 6px;
+}
+
+.box-form .card-register .form-body form .row-register .col-register {
+  width: 100%;
+}
+
+.box-form .card-register .form-body form .row-register .col-register .input-register {
+  background-color: transparent;
+  font-size: 14px;
+  border-style: solid;
+  border-width: 0;
+  display: block;
+  width: 100%;
+  padding: 1px 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #212529;
+  background-clip: padding-box;
+  border-bottom: 2px solid #fff;
+  margin-top: 8px;
+}
+
+.box-form .card-register .form-body form .row-register .col-register .input-register:focus {
+  outline: none;
+}
+
+.box-form .card-register .form-body form .row-register .col-register .input-register::-moz-placeholder {
+  color: rgb(171, 168, 168);
+  opacity: 1;
+  font-size: 12px;
+}
+
+.box-form .card-register .form-body form .row-register .col-register .input-register:-ms-input-placeholder {
+  color: rgb(171, 168, 168);
+  opacity: 1;
+  font-size: 12px;
+}
+
+.box-form .card-register .form-body form .row-register .col-register .input-register::placeholder {
+  color: rgb(171, 168, 168);
+  opacity: 1;
+  font-size: 12px;
+}
+
+.box-form .card-register .form-body form .row-register .col-register .input-register-text {
+  background-color: transparent;
+  font-size: 14px;
+  border-style: solid;
+  border-width: 0;
+  display: block;
+  width: 100%;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #212529;
+  background-clip: padding-box;
+  border: 1.5px solid #fff;
+  border-radius: 20px;
+  margin-top: 15px;
+}
+
+.box-form .card-register .form-body form .row-register .col-register .input-register-text:focus {
+  outline: none;
+}
+
+.box-form .card-register .form-body form .row-register .col-register .input-register-text::-moz-placeholder {
+  color: rgb(171, 168, 168);
+  opacity: 1;
+  font-size: 12px;
+}
+
+.box-form .card-register .form-body form .row-register .col-register .input-register-text:-ms-input-placeholder {
+  color: rgb(171, 168, 168);
+  opacity: 1;
+  font-size: 12px;
+}
+
+.box-form .card-register .form-body form .row-register .col-register .input-register-text::placeholder {
+  color: rgb(171, 168, 168);
+  opacity: 1;
+  font-size: 12px;
+}
+
+.box-form .card-register .form-body form .form-type {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+}
+
+.box-form .card-register .form-body form .form-type .label-title {
+  align-self: center;
+  margin-top: 8px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.box-form .card-register .form-body form .form-type .ul-type {
+  margin-top: 20px;
+  height: 115px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-self: center;
+  margin-left: 55px;
+}
+
+.box-form .card-register .form-body form .form-type .ul-type .label-type {
+  color: #fff;
+  font-size: 17px;
+}
+
+.box-form .card-register .form-body form .form-btn {
+  margin-top: 25px;
+}
+
+.box-form .card-register .form-body form .form-btn .box-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.box-form .card-register .form-body form .form-btn .box-btn .btn-register {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  color: #fff;
+  margin-left: 30px;
+  padding: 5px 10px;
+  border: 2px solid #fff;
+  transform: translate(-50%, -50%);
+  background-color: #f6993f;
+}
+
+.box-form .card-register .form-body form .form-btn .box-btn .btn-register::before,
+.box-form .card-register .form-body form .form-btn .box-btn .btn-register::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: inherit;
+  transition: all 0.5s ease-in;
+}
+
+.box-form .card-register .form-body form .form-btn .box-btn .btn-register::before {
+  top: -8px;
+  left: -8px;
+  border-width: 2px 0 0 2px;
+}
+
+.box-form .card-register .form-body form .form-btn .box-btn .btn-register::after {
+  bottom: -8px;
+  right: -8px;
+  border-width: 0 2px 2px 0;
+}
+
+.box-form .card-register .form-body form .form-btn .box-btn .btn-register:hover::before,
+.box-form .card-register .form-body form .form-btn .box-btn .btn-register:hover::after {
+  width: calc(100% + 16px);
+  height: calc(100% + 16px);
+}
+
+.tr-list {
+  background-color: #f6993f;
+}
+
+/* Rimozione spinner da input-number */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Rimozione spinner da input-number */
+

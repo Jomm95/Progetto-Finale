@@ -10,8 +10,8 @@
                     <a href="{{route('admin.items.create')}}" class="btn btn-warning mb-3">Crea nuovo piatto</a>
 
                     <thead>
-                    <tr>
-                        <th scope="col">#</th>
+                    <tr class="tr-list">
+                        <th scope="col">ID piatto</th>
                         <th scope="col">Nome Piatto</th>
                         <th scope="col">Descrizione</th>
                         <th scope="col">Slug</th>
